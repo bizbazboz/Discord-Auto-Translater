@@ -28,6 +28,6 @@ async def on_message(message):
         except Exception as e:
             print(f"An error occurred during translation.\n {e}")
 
-    await bot.process_commands(message)
+        await bot.process_commands(message)
     
 bot.run(BOT_TOKEN)
