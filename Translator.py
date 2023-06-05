@@ -18,7 +18,6 @@ async def on_message(message):
     else:
         try:
             translated = GoogleTranslator(source='auto', target='en').translate(text = str(message.content))
-            print(f"{translated}{message.content}")
             if translated != message.content:
                 author = message.author
                 avatars = await author.display_avatar.read()
@@ -27,7 +26,7 @@ async def on_message(message):
                 await webhook.delete() # then delete based on variable
                 await message.delete()
         except Exception as e:
-            await message.channel.send(f"An error occurred during translation.\n {e}")
+            print(f"An error occurred during translation.\n {e}")
 
     await bot.process_commands(message)
     
